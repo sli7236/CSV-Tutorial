@@ -17,12 +17,12 @@ public class Controller extends Application {
         List<Data> data = CSVReader.readCSVFile("src/2012_SAT_Results.csv");
 
         stage.setTitle("SAT Results 2012");
-        final NumberAxis xAxis = new NumberAxis();
+        final CategoryAxis xAxis = new CategoryAxis();
         final NumberAxis yAxis = new NumberAxis();
-        xAxis.setLabel("SAT Reading");
+        xAxis.setLabel("School");
 
-        final LineChart<Number,Number> lineChart =
-                new LineChart<Number,Number>(xAxis,yAxis);
+        final LineChart<String,Number> lineChart =
+                new LineChart<String,Number>(xAxis,yAxis);
 
         lineChart.setTitle("SAT Results 2012");
 
@@ -33,7 +33,7 @@ public class Controller extends Application {
 
         for(int i = 0; i<data.size();i++){
             Data   current = data.get(i);
-            series.getData().add(new XYChart.Data(current.getReading(), current.getMath()));
+            series.getData().add(new XYChart.Data(current.getSchool(), current.getMath()));
         }
 
 

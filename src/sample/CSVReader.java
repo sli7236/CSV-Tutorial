@@ -19,7 +19,7 @@ import java.util.List;
 public class CSVReader {
 
     public static void main(String... args) {
-        List<Data> data = readCSVFile("C:\\Users\\BT_1N3_03\\IdeaProjects\\CSV-Tutorial\\src\\sample\\2012_SAT_Results.csv");
+        List<Data> data = readCSVFile("2012_SAT_Results.csv");
 
         // let's print all the person read from CSV file
         for (Data b : data) {
@@ -104,7 +104,11 @@ class Data {
         this.DBN = DBN;
     }
 
-    public String getSchool(String school)
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
+    public String getSchool()
     {
         return school;
     }
