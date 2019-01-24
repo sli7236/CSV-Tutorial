@@ -14,7 +14,7 @@ import java.util.List;
 public class Controller extends Application {
 
     @Override public void start(Stage stage) {
-        List<Data> data = CSVReader.readCSVFile("src/2012_SAT_Results.csv");
+        List<Data> data = CSVReader.readCSVFile("src/sample/2012_SAT_Results.csv");
 
         stage.setTitle("SAT Results 2012");
         final CategoryAxis xAxis = new CategoryAxis();
