@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -26,7 +27,7 @@ public class CSVReader {
         }
     }
 
-    private static List<Data> readCSVFile(String fileName) {
+    public static List<Data> readCSVFile(String fileName) {
         List<Data> dataSet = new ArrayList<>();
         Path pathToFile = Paths.get(fileName);
 
@@ -44,7 +45,8 @@ public class CSVReader {
                 // use string.split to load a string array with the values from
                 // each line of
                 // the file, using a comma as the delimiter
-                String[] attributes = line.split(",");
+                String[] attributes = line.split(",(?=(?:[^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)");
+                System.out.println(Arrays.toString(attributes));
 
                 Data data = createData(attributes);
 
